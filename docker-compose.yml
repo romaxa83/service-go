@@ -1,23 +1,24 @@
 version: '3'
 services:
-#  service:
-#    hostname: service
-#    image: service:latest
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    restart: always
-#    ports:
-#      - "8000:8000"
-#    depends_on:
-#      - rabbitmq
-#      - mongodb
-#    environment:
-#      - RABBITMQ_URI=amqp://guest:guest@rabbitmq:5672?heartbeat=30&connection_timeout=120
-#      - MONGO_URI=mongodb://root:root@mongodb:27017
+  service:
+    hostname: service
+    image: service:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rabbitmq
+      - mongodb
+    environment:
+      - RABBITMQ_URI=amqp://guest:guest@rabbitmq:5672?heartbeat=30&connection_timeout=120
+      - MONGO_URI=mongodb://root:root@mongodb:27017
 
   rabbitmq:
     image: 'rabbitmq:3-management-alpine'
+    container_name: 'SERVICE-GO__rabbit'
     ports:
       - '15672:15672'
       - '5672:5672'
@@ -27,6 +28,7 @@ services:
 
   mongodb:
     image: mongo:latest
+    container_name: 'SERVICE-GO__mongo'
     ports:
       - '27017:27017'
     environment:

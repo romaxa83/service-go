@@ -16,11 +16,6 @@ make build-service
 // сборка сервиса в докер образа 
 make build-docker-service
 ```
-
-```bash
-// сборка сервиса в докер образа 
-make build-docker-service
-```
 ```bash
 // запуск сервисов, где сервис на go запускаеться в контейнере
 make up-service
